@@ -1,0 +1,495 @@
+/**** CSS Reset ****/
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li, 
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/*End of Reset*/
+/*Global styles back ground color and text*/
+html {
+    background-color: #020659;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; /*Verdana breaks the second column (Dinner Party) in the curatedPlaylist flexbox very specifically only that one after media query*/
+    color:#ffffff;
+}
+h1 {
+    font-size:1.25em;
+}
+h2, h3 {
+    font-size: 1em;
+    font-weight: bold;
+    padding: 10px;
+}
+h4 {
+    font-size: 1em;
+    font-weight: bold;
+}
+p {
+    font-size: .75em;
+    padding: 10px;
+}
+dl {
+    font-size: 1em;
+    padding-top: 5px;
+}
+footer p {
+    font-size: .75em;
+}
+a:link {
+    text-decoration: none; 
+}
+a:visited{
+    text-decoration: none;
+    color:#ffffff;
+}
+li:hover{
+    text-decoration: none;
+    color:#ffffff;
+    background-color: #590242;  
+}
+a:active {
+    text-decoration: none;
+}
+
+button {
+    background-color: #590242;
+    color: #ffffff;
+    margin: 10px;
+    border-radius: 5px;
+    width: 35%;
+}
+/* set up 1 column grid in body for mobile site */
+body {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: auto;
+    min-width: 375px;
+}
+
+/* Hamburger Menu */
+nav ul {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+}
+
+nav label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+    
+}
+nav label span {
+    background-color: #ffffff;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background-color .2s ease-out;
+    width: 18px;
+}
+nav label span:before, label span:after {
+    background: #ffffff;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+nav label span:before {
+    top: 5px;
+}
+nav label span:after {
+    top: -5px;
+}
+nav input {
+    display: none;
+}
+nav input:checked ~ ul {
+    max-height: 500px;
+}
+nav input:checked ~ label span {
+    background: transparent;
+}
+nav input:checked ~ label span:before {
+    transform: rotate(-45deg);
+}
+nav input:checked ~ label span:after {
+    transform: rotate(45deg);
+}
+nav input:checked ~ label:not(.steps) span:before, input:checked ~ label:not(.steps) span:after {
+    top: 0;
+}
+/* End of Code for Hamburger Menu */
+
+nav {
+    position: relative;
+    background-color: #020873;
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+#home {
+    font-size: 1.75em;
+    font-weight: bolder; 
+    position: absolute;
+    left: 25%;
+    bottom: 35%;
+}
+#menuItemTwo {
+    margin: 8px;
+}
+#menuItemThree {
+    margin: 8px;
+}
+#menuItemFour {
+    margin: 8px;
+}
+#menuItemUser {
+    margin: 8px;
+}
+/* Placeing items in Mobile Grid in body*/
+#smoothJazz {
+    background-image: linear-gradient(to right, #2104D9, #000);
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+/* Adding Scroll Bars to trendingSongs, yourPlaylists and curatedPlaylists */
+/*Setting up for trendingSongs*/
+#trendingSongs{
+    background: #ffffff;
+    color: #590242;
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+.scroll {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.scroll section {
+    margin: 10px;
+    position: relative;
+}
+.scroll div {
+    position: absolute;
+    top: 251px;
+    background-color: rgba(255,255,255, .75);
+    padding: 5px;
+    height: 50px;
+    width: 350px;
+}
+/* Style for text in trendingSongs*/
+dl {
+    display: flex;
+}
+dt {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+dd {
+    font-style: italic;
+    padding-left: 5px;
+}
+/* code for audio player */
+audio {
+    position: absolute;
+    bottom: 150px;
+    left: 5px;
+}
+audio::-webkit-media-controls-mute-button {
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+audio::-webkit-media-controls-play-button {
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+audio::-webkit-media-controls-enclosure {
+    background-color: rgba(255,255,255, .5);
+}
+/* End of code for audio player*/
+/* end of scroll/grid code for trending Songs */
+/* code for scroll/grid for yourPlaylists */
+#yourPlaylists {
+    background-color: #ffffff;
+    color:#590242;
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+.scrollTwo{
+    background-color: #2699FB;
+    color: #ffffff;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.scrollTwo section {
+    margin: 10px;
+    position: relative;
+    background-color: #0D8DFB;
+    text-align: center;
+}
+/* End of code for scroll/grid for yourPlaylists
+/* code for scroll/grid for curatedPlaylists */
+#curatedPlaylists{
+    background-color: #ffffff;
+    color:#590242;
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+.scrollThree{
+    background-color: #020873;
+    color: #ffffff;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.scrollThree section {
+    margin: 10px;
+    position: relative;
+    background-color: #020659;
+    text-align: center;
+}
+/* End of code for scroll/grid for curatedPlaylists
+
+/* Styles for the scrollbars */
+#trendingSongs ::-webkit-scrollbar {
+    width: 15px;
+}
+#trendingSongs ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 15px #590242;
+}
+#trendingSongs ::-webkit-scrollbar-thumb {
+    background: #590242;
+    border-radius: 5px;
+}
+#trendingSongs ::-webkit-scrollbar-thumb:hover {
+    background: #020659;
+}
+#yourPlaylists ::-webkit-scrollbar, #curatedPlaylists ::-webkit-scrollbar {
+    width: 15px;
+}
+#yourPlaylists ::-webkit-scrollbar-track, #curatedPlaylists ::-webkit-scrollbar-track  {
+    box-shadow: inset 0 0 15px #020659;
+}
+#yourPlaylists ::-webkit-scrollbar-thumb, #curatedPlaylists ::-webkit-scrollbar-thumb {
+    background: #020659;
+    border-radius: 5px;
+}
+#yourPlaylists ::-webkit-scrollbar-thumb:hover, #curatedPlaylists ::-webkit-scrollbar-thumb:hover {
+    background: #ffffff;
+}
+/*Footer Styles */
+footer {
+    background-color: #ffffff;
+    color: #590242;
+    grid-column-start: 1;
+}
+/* end of footer styles */
+
+/* Media query for increased screen size*/
+@media  (min-width:834px) {
+ 
+  /* Global styles inside media query*/
+  html{
+  font-family: Geneva, Tahoma, sans-serif;/* removing Verdana from fonts for the media query*/
+  }
+
+  /*increasing text readbility on paragraphs for bigger screens*/
+    p {
+        font-size: 1em;
+    }
+   
+    nav {
+        padding: 10px;
+        width: 98%;
+    }
+
+    nav ul {
+        background-color: #020873;
+        overflow: visible;
+        position: absolute;
+        top: 20%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 25px;
+        width: 95%;
+    }
+    nav label span, input {
+        display: none;
+    }
+    #home {
+        color: #ffffff;
+        position: relative;
+        left: 3%;
+        top: 0; 
+        margin: 10px;
+    }
+    #userPic {
+       float: right;
+
+    }
+    h4 {
+        padding-left: 10px;
+    }
+    p {
+        font-size: 1em;
+        padding: 10px;
+    }
+   /* Setting up a 4 column grid for larger screen layout */
+    Body {
+        margin: 0 auto;
+        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        max-width: 834px;
+    }
+    /* rotate scrollTwo and scrollThree */
+
+    .scrollTwo{
+        display: flex;
+        flex-direction: column;   
+    }
+    .scrollTwo section {
+        width: 90%;
+        padding: 5px;
+        text-align: left;
+        position: relative;
+        
+    }
+    .scrollTwo div {
+        text-align: left;
+        justify-content: right;
+        transform: translateY(-200%);
+        padding-left: 150px;
+    }
+    .scrollThree {
+        display: flex;
+        flex-direction: column;
+    }
+    .scrollThree section {
+        width: 90%;
+        padding: 5px;
+        text-align: left;
+    }
+    .scrollThree div {
+        height: 20%;
+        text-align: left;
+        justify-content: right;
+        transform: translateY(-200%);
+        padding-left: 150px;
+    }
+    /*Styling scroll bars inside media query*/
+    ::-webkit-scrollbar {
+        width: 15px;
+    }
+    ::-webkit-scrollbar-track  {
+        box-shadow: inset 0 0 15px #030A8C;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #030A8C;
+        border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #ffffff;
+    }
+    /* placing items*/
+   
+    nav {
+        grid-column-start: 1;
+        grid-column-end: 5;
+    }
+    #smoothJazz {
+        grid-column-start: 1;
+        grid-column-end: 5;     
+    }
+    #trendingSongs{
+        grid-column-start: 1;
+        grid-column-end: 5;
+    }
+    #yourPlaylists {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        width:50%;
+        height: 35%;
+        overflow-y: auto;
+        overflow-x: hidden;  
+    }   
+    #curatedPlaylists {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        width:50%;
+        height: 35%;
+        float: right;
+        transform: translateY(-100%);
+        clear:both;
+        overflow-y: auto;
+        overflow-x: hidden;  
+    }
+    /*styling footer*/
+    footer {
+     text-align: right;
+     position: relative;
+     height: 50px;
+    }
+    footer p{
+        transform: translateY(65%);
+    }
+
+    #buttonThree{
+        position: absolute;
+        bottom:15px;
+        right: 15px;
+    }
+   
+    /* End of Grid placements*/
+ }
