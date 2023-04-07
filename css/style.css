@@ -256,6 +256,10 @@ audio::-webkit-media-controls-enclosure {
 }
 /* End of code for audio player*/
 /* end of scroll/grid code for trending Songs */
+.playlistBar {
+    background-color: #ffffff;
+    color: #590242;
+}
 /* code for scroll/grid for yourPlaylists */
 #yourPlaylists {
     background-color: #ffffff;
@@ -391,6 +395,7 @@ footer {
         justify-content: center;
         display: grid;
         grid-template-columns: repeat(4,1fr);
+        width:100%;
         max-width: 834px;
     }
     /* rotate scrollTwo and scrollThree */
@@ -470,7 +475,7 @@ footer {
         width:50%;
         height: 35%;
         float: right;
-        transform: translateY(-100%);
+        transform: translateY(-108%);
         clear:both;
         overflow-y: auto;
         overflow-x: hidden;  
