@@ -475,7 +475,7 @@ footer {
         width:50%;
         height: 35%;
         float: right;
-        transform: translateY(-108%);
+        transform: translateY(-108.5%);
         clear:both;
         overflow-y: auto;
         overflow-x: hidden;  
